@@ -1,14 +1,10 @@
+import fs from 'fs';
+import path from 'path';
+
 export default async function handler(req, res) {
-  const githubUrl = "https://raw.githubusercontent.com/dnzinx66-dotcom/N0dtHub/refs/heads/main/NodtHub_v46_com_Auth_Delta_Premium.lua?token=GHSAT0AAAAAAEOQMDWG7NFOLYEM2SSCDL2C2XKLXPA";
-
   try {
-    const response = await fetch(githubUrl);
-    
-    if (!response.ok) {
-      return res.status(response.status).send('error("Erro ao carregar o script base.")');
-    }
-
-    const scriptBody = await response.text();
+    const filePath = path.join(process.cwd(), 'NodtHub_v46_com_Auth_Delta_Premium.lua');
+    const scriptBody = fs.readFileSync(filePath, 'utf8');
     
     res.setHeader("Content-Type", "text/plain");
     res.setHeader("Access-Control-Allow-Origin", "*");
