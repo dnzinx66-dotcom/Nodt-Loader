@@ -1,25 +1,11 @@
 export default async function handler(req, res) {
-  // Pega o token que o script do cliente mandou no Header
-  const authHeader = req.headers.authorization;
-  let token = authHeader ? authHeader.replace("Bearer ", "") : "";
+  const githubUrl = "https://raw.githubusercontent.com/dnzinx66-dotcom/N0dtHub/refs/heads/main/NodtHub_v46_com_Auth_Delta_Premium.lua?token=GHSAT0AAAAAAEOQMDWG7NFOLYEM2SSCDL2C2XKLXPA";
 
-  // Pega o hwid do cliente se ele mandar
-  const hwid = req.headers["x-hwid"] || "";
-  
-  // Faz a chamada pro seu backend no Manus
-  const manusUrl = "https://nodtkey-mr2kymqx.manus.space/api/script";
-  
   try {
-    const response = await fetch(manusUrl, {
-      method: "GET",
-      headers: {
-        "Authorization": "Bearer " + token,
-        "x-hwid": hwid
-      }
-    });
-
+    const response = await fetch(githubUrl);
+    
     if (!response.ok) {
-      return res.status(response.status).send(await response.text());
+      return res.status(response.status).send('error("Erro ao carregar o script base.")');
     }
 
     const scriptBody = await response.text();
@@ -29,6 +15,6 @@ export default async function handler(req, res) {
     return res.status(200).send(scriptBody);
     
   } catch (error) {
-    return res.status(500).send(`error("Erro de conexao com o servidor: ${error.message}")`);
+    return res.status(500).send(`error("Erro no servidor Vercel: ${error.message}")`);
   }
 }
