@@ -3,7 +3,7 @@ import path from 'path';
 
 export default async function handler(req, res) {
   try {
-    const filePath = path.join(process.cwd(), 'NodtHub_v46_com_Auth_Delta_Premium.lua');
+    const filePath = path.join(process.cwd(), 'NodtHub_v46_com_Auth_Delta_Premium_debug_token.lua');
     const scriptBody = fs.readFileSync(filePath, 'utf8');
     
     res.setHeader("Content-Type", "text/plain");
