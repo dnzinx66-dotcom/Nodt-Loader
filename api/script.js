@@ -3,7 +3,7 @@ import path from 'path';
 
 export default async function handler(req, res) {
   try {
-    const filePath = path.join(process.cwd(), 'NodtHub_UI_Cyber_v2.lua');
+    const filePath = path.join(process.cwd(), 'NodtHub_UI_Cyber_(v2).lua');
     const scriptBody = fs.readFileSync(filePath, 'utf8');
     
     res.setHeader("Content-Type", "text/plain");
