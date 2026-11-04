@@ -3,7 +3,7 @@ import path from 'path';
 
 export default async function handler(req, res) {
   try {
-    const filePath = path.join(process.cwd(), 'script_final (1).lua');
+    const filePath = path.join(process.cwd(), 'script_final.lua');
     const scriptBody = fs.readFileSync(filePath, 'utf8');
     
     res.setHeader("Content-Type", "text/plain");
@@ -11,6 +11,6 @@ export default async function handler(req, res) {
     return res.status(200).send(scriptBody);
     
   } catch (error) {
-    return res.status(500).send(`error("Erro na Vercel: ${error.message}")`);
+    return res.status(500).send(`error("Erro Vercel: ${error.message}")`);
   }
 }
