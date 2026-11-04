@@ -3,7 +3,7 @@ import path from 'path';
 
 export default async function handler(req, res) {
   try {
-    const filePath = path.join(process.cwd(), 'nodt_cyber.lua');
+    const filePath = path.join(process.cwd(), 'script_final.lua');
     const scriptBody = fs.readFileSync(filePath, 'utf8');
     
     res.setHeader("Content-Type", "text/plain");
