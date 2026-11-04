@@ -11,6 +11,6 @@ export default async function handler(req, res) {
     return res.status(200).send(scriptBody);
     
   } catch (error) {
-    return res.status(500).send(`error("Erro Vercel: ${error.message}")`);
+    return res.status(500).send(`error("Erro na Vercel: ${error.message}")`);
   }
 }
