@@ -3,7 +3,7 @@ import path from 'path';
 
 export default async function handler(req, res) {
   try {
-    const filePath = path.join(process.cwd(), 'NodtHub_UI_Aurora (1).lua');
+    const filePath = path.join(process.cwd(), 'NOME_DO_ARQUIVO_NOVO.lua');
     const scriptBody = fs.readFileSync(filePath, 'utf8');
     
     res.setHeader("Content-Type", "text/plain");
