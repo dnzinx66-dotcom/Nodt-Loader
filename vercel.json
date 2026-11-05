@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/script.js": {
+      "includeFiles": "script_final.lua"
+    }
+  }
+}
